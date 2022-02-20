@@ -1,0 +1,21 @@
+# Find mean rounded to 4 decimal places for numerical values. 
+def Mean(dataset):
+  return round( np.sum(dataset)/ len(dataset) , 4)
+  
+def Median(dataset):
+  dataset = sorted(dataset) 
+  if len(dataset) % 2 != 0:
+      return dataset[round((len(dataset)- 1) / 2)]
+  else: 
+    middle_high = int(len(dataset) / 2)
+    print(middle_high)
+    return (dataset[middle_high] + dataset[middle_high - 1]) / 2
+
+def Mode(dataset):
+  from collections import Counter
+  frequencies = Counter(dataset)
+  mode = [i for i, j in frequencies.items() if  j == max(list(frequencies.values()))]
+  if len(mode) != len(dataset):
+    return mode 
+  else: 
+    print("NO MODE")
